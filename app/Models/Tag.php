@@ -11,10 +11,9 @@ class Tag extends Model
 
     protected $fillable = [
         'name',
-        'blog_id'
     ];
 
-    public function blogs()
+    public function blog()
     {
         return $this->belongsTo(Blog::class);
     }

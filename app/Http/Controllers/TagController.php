@@ -14,7 +14,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::latest()->paginate(15);
+        return view('admin.tags.index', compact('tags'));
     }
 
     /**
@@ -24,7 +25,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.tags.create');
     }
 
     /**
@@ -35,7 +36,15 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string',
+        ]);
+
+        Tag::create([
+            'name' => $request->name,
+        ]);
+
+        return redirect('/admin/tags');
     }
 
     /**
@@ -57,7 +66,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        //
+        return view('admin.tags.edit', compact('tag'));
     }
 
     /**
@@ -69,7 +78,15 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+
+        ]);
+
+        $tag->update([
+            'name' => $request->name,
+        ]);
+        return redirect()->route('admin.tags.index')->with('success', 'Tag updated successfully');
     }
 
     /**

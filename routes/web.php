@@ -22,5 +22,6 @@ Route::middleware('guest')
         Route::resource('products', 'ProductController');
         Route::resource('blogs', 'BlogController');
         Route::resource('categories', 'CategoryController');
+        Route::resource('tags', 'TagController')->except(['show']);
         Route::resource('users', 'UserController')->except(['show']);
 });

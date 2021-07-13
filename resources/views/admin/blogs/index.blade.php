@@ -9,12 +9,12 @@
               <div class="container-fluid">
                 <div class="row mb-2">
                   <div class="col-sm-6">
-                    <h1>Simple Tables</h1>
+                    <h1>Blogs</h1>
                   </div>
                   <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                      <li class="breadcrumb-item"><a href="#">Home</a></li>
-                      <li class="breadcrumb-item active">Simple Tables</li>
+                      <li class="breadcrumb-item"><a href="{{ 'admin' }}">Home</a></li>
+                      <li class="breadcrumb-item active">Blogs</li>
                     </ol>
                   </div>
                 </div>
@@ -27,18 +27,11 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">Responsive Hover Table</h3>
-
+                    <h3 class="card-title">Blogs Table</h3>
                     <div class="card-tools">
-                      <div class="input-group input-group-sm" style="width: 150px;">
-                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                        <div class="input-group-append">
-                          <button type="submit" class="btn btn-default">
-                            <i class="fas fa-search"></i>
-                          </button>
-                        </div>
-                      </div>
+                        <ul class="pagination pagination-sm float-right">
+                            {{ $blogs->links('vendor.pagination.default') }}
+                        </ul>
                     </div>
                   </div>
                   <!-- /.card-header -->
@@ -47,41 +40,30 @@
                       <thead>
                         <tr>
                           <th>ID</th>
-                          <th>User</th>
-                          <th>Date</th>
-                          <th>Status</th>
-                          <th>Reason</th>
+                          <th>Title</th>
+                          <th>Excerpt</th>
+                          <th>Category</th>
+                          <th>Body</th>
+                          <th>Tags</th>
+                          <th>Show/Edit/Delete</th>
                         </tr>
                       </thead>
                       <tbody>
+                      @foreach($blogs as $blog)
                         <tr>
-                          <td>183</td>
-                          <td>John Doe</td>
-                          <td>11-7-2014</td>
-                          <td><span class="tag tag-success">Approved</span></td>
-                          <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                          <td>{{ $blog->id }}</td>
+                          <td>{{ Str::limit($blog->title, $limit = 25, $end = '...') }}</td>
+                          <td>{{ Str::limit($blog->excerpt, $limit = 25, $end = '...') }}</td>
+                          <td>{{ $blog->category->name }}</td>
+                          <td>{{ Str::limit($blog->body, $limit = 50, $end = '...') }}</td>
+                          <td>@foreach($blog->tags as $tag) {{ $tag->name }}@endforeach</td>
+                          <td><a href="blogs/{{ $blog->id }}" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                              <a href="{{ route('admin.blogs.edit', $blog->id) }}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                              <a href="{{ route('admin.blogs.edit', $blog->id) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                          </td>
+
                         </tr>
-                        <tr>
-                          <td>219</td>
-                          <td>Alexander Pierce</td>
-                          <td>11-7-2014</td>
-                          <td><span class="tag tag-warning">Pending</span></td>
-                          <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                          <td>657</td>
-                          <td>Bob Doe</td>
-                          <td>11-7-2014</td>
-                          <td><span class="tag tag-primary">Approved</span></td>
-                          <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                          <td>175</td>
-                          <td>Mike Doe</td>
-                          <td>11-7-2014</td>
-                          <td><span class="tag tag-danger">Denied</span></td>
-                          <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
+                      @endforeach
                       </tbody>
                     </table>
                   </div>

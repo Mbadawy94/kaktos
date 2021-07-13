@@ -9,12 +9,12 @@
               <div class="container-fluid">
                 <div class="row mb-2">
                   <div class="col-sm-6">
-                    <h1>Products</h1>
+                    <h1>Tags</h1>
                   </div>
                   <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                      <li class="breadcrumb-item"><a href="{{ 'admin' }}">Home</a></li>
-                      <li class="breadcrumb-item active">Products Table</li>
+                      <li class="breadcrumb-item"><a href="{{ 'admin.dashboard' }}">Home</a></li>
+                      <li class="breadcrumb-item active">Tags</li>
                     </ol>
                   </div>
                 </div>
@@ -27,13 +27,13 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">Products</h3>
-                      <div class="card-tools">
-                        <ul class="pagination pagination-sm float-right">
-                            {{ $products->links('vendor.pagination.default') }}
+                    <h3 class="card-title">Tags Table</h3>
+                    <a href="{{ route('admin.tags.create')}}" class="btn btn-success float-right ml-3"><i class="fas fa-plus-square"></i> Create</a>
+                    <div class="card-tools ">
+                        <ul class="pagination pagination-sm float-right ">
+                            {{ $tags->links('vendor.pagination.default') }}
                         </ul>
-                      </div>
-
+                    </div>
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body table-responsive p-0">
@@ -41,28 +41,18 @@
                       <thead>
                         <tr>
                           <th>ID</th>
-                          <th>Title</th>
-                          <th>Category</th>
-                          <th>Price</th>
-                          <th>Quantity</th>
-                          <th>Description</th>
-                          <th>Show\Edit\Delete</th>
+                          <th>Name</th>
+                          <th>Edit\Delete</th>
                         </tr>
                       </thead>
                       <tbody>
-                      @foreach($products as $product)
+                      @foreach($tags as $tag)
                         <tr>
-                          <td>{{ $product->id }}</td>
-                          <td>{{ $product->title }}</td>
-                          <td>{{ $product->category->name }}</td>
-                          <td>{{ $product->price }}</td>
-                          <td>{{ $product->quantity }}</td>
-                          <td>{{ Str::limit($product->description, $limit = 50, $end = '...') }}</td>
-                          <td><a href="products/{{ $product->id }}" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                              <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-success"><i class="fas fa-edit"></i></a>
-                              <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                          <td>{{ $tag->id }}</td>
+                          <td>{{ $tag->name }}</td>
+                          <td><a href="{{ route('admin.tags.edit', $tag->id) }}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                              <a href="{{ route('admin.tags.destroy', $tag->id) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                           </td>
-
                         </tr>
                       @endforeach
                       </tbody>

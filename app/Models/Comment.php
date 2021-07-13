@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class comment extends Model
+class Comment extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -14,7 +14,7 @@ class comment extends Model
         'body'
     ];
 
-    public function blogs()
+    public function blog()
     {
         return $this->belongsTo(Blog::class);
     }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
 use App\Models\product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -14,7 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::latest()->paginate(15);
+        return view('admin.products.index', compact('products'));
     }
 
     /**
@@ -24,7 +27,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('admin.products.create', compact('categories'));
     }
 
     /**
@@ -35,7 +39,27 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|string',
+            'price' => 'required|numeric',
+            'description' => 'required|string',
+            'quantity' => 'string',
+            'category_id' => 'required',
+            'image' => 'required|mimes:jpeg,jpg,png',
+        ]);
+
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(storage_path('app/public/images'), $imageName);
+        $imageName = 'storage/images/' . $imageName;
+        Product::create([
+            'image' => $imageName,
+            'title' => $request->title,
+            'price' => $request->price,
+            'description' => $request->description,
+            'category_id' => $request->category_id,
+        ]);
+
+        return redirect('/admin/products');
     }
 
     /**
@@ -46,7 +70,7 @@ class ProductController extends Controller
      */
     public function show(product $product)
     {
-        //
+         return view('admin.products.show', compact('product'));
     }
 
     /**
@@ -57,7 +81,8 @@ class ProductController extends Controller
      */
     public function edit(product $product)
     {
-        //
+        $categories = Category::all();
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     /**
@@ -69,7 +94,25 @@ class ProductController extends Controller
      */
     public function update(Request $request, product $product)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'image' => 'nullable',
+        ]);
+        if ($request->hasFile('image')){
+            Storage::delete('app/public/images/' . $product->image);
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(storage_path('app/public/images'), $imageName);
+            $request->image = $imageName;
+        };
+
+        $product->update([
+            'image' => $imageName ?? $product->image,
+            'title' => $request->title,
+            'description' => $request->description,
+        ]);
+        return redirect()->route('admin.products.show', $product->id)->with('success', 'Product updated successfully');
     }
 
     /**

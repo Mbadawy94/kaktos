@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class blog extends Model
+class Blog extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -16,6 +16,11 @@ class blog extends Model
         'category_id',
     ];
 
+    public function getImageUrlAttribute()
+    {
+        return url($this->image);
+    }
+
     public function comments()
     {
         return $this->hasMany(Comment::class);
@@ -25,7 +30,7 @@ class blog extends Model
             return $this->hasMany(Tag::class);
         }
 
-    public function categories()
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }

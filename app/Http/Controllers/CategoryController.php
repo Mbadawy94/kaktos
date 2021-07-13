@@ -12,9 +12,10 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Category $category)
     {
-        //
+        $categories = Category::latest()->paginate(15);
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -24,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -35,7 +36,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string',
+            'description' => 'required|string',
+        ]);
+
+        Category::create([
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+
+        return redirect('/admin/categories');
     }
 
     /**
@@ -46,7 +57,8 @@ class CategoryController extends Controller
      */
     public function show(category $category)
     {
-        //
+        return view('admin.categories.show', compact('category'));
+
     }
 
     /**
@@ -57,7 +69,7 @@ class CategoryController extends Controller
      */
     public function edit(category $category)
     {
-        //
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -69,7 +81,17 @@ class CategoryController extends Controller
      */
     public function update(Request $request, category $category)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+
+        ]);
+
+        $category->update([
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+        return redirect()->route('admin.categories.show', $category->id)->with('success', 'Category updated successfully');
     }
 
     /**
