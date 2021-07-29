@@ -58,7 +58,7 @@
                           <td>{{ $product->price }}</td>
                           <td>{{ $product->quantity }}</td>
                           <td>{{ Str::limit($product->description, $limit = 50, $end = '...') }}</td>
-                          <td><a href="products/{{ $product->id }}" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                          <td><a href="products/{{ $product->slug }}" class="btn btn-info"><i class="fas fa-eye"></i></a>
                               <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-success"><i class="fas fa-edit"></i></a>
                               <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                           </td>

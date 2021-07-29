@@ -57,7 +57,7 @@
                           <td>{{ $blog->category->name }}</td>
                           <td>{{ Str::limit($blog->body, $limit = 50, $end = '...') }}</td>
                           <td>@foreach($blog->tags as $tag) {{ $tag->name }}@endforeach</td>
-                          <td><a href="blogs/{{ $blog->id }}" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                          <td><a href="blogs/{{ $blog->slug }}" class="btn btn-info"><i class="fas fa-eye"></i></a>
                               <a href="{{ route('admin.blogs.edit', $blog->id) }}" class="btn btn-success"><i class="fas fa-edit"></i></a>
                               <a href="{{ route('admin.blogs.edit', $blog->id) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                           </td>
