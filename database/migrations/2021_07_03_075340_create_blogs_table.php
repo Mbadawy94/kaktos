@@ -20,7 +20,7 @@ class CreateBlogsTable extends Migration
             $table->string('slug')->index();
             $table->text('excerpt');
             $table->text('body');
-//            $table->timestamp('published_at')->nullable();
+            $table->boolean('popular')->default(false);
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });

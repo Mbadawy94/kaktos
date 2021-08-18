@@ -14,6 +14,7 @@ class Blog extends Model
         'title',
         'excerpt',
         'body',
+        'popular',
         'category_id',
     ];
 
@@ -24,6 +25,11 @@ class Blog extends Model
         static::creating(function($blog){
             $blog->slug = Str::slug($blog->title);
         });
+    }
+
+    public function scopePopular($query)
+    {
+        return $query->where('popular', true);
     }
 
     public function getImageUrlAttribute()

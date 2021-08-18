@@ -5,9 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\blog;
 use App\Models\category;
-use App\Models\Tag;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+
 
 class BlogController extends Controller
 {
@@ -18,7 +16,10 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('frontend.blogs.index');
+        $blogs = Blog::orderBy('id', 'desc')->paginate(3);
+        $categories = Category::all();
+        $popular = Blog::popular()->get();
+        return view('frontend.blogs.index',compact('blogs', 'categories','popular'));
     }
 
     /**
@@ -27,13 +28,19 @@ class BlogController extends Controller
      * @param  \App\Models\blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($slug)
     {
-        return view('frontend.blogs.blog');
+        $blog = Blog::where('slug', $slug)->first();
+        $blogs = $blog->category->blogs()->take(3)->get();
+        $popular = Blog::popular()->get();
+        $categories = Category::all();
+        return view('frontend.blogs.show',compact('blog', 'blogs', 'categories', 'popular'));
     }
 
-    public function category()
+    public function category($slug)
     {
-        return view('frontend.blogs.category-blog');
+        $category = Category::where('slug', $slug)->first();
+        $blogs = $category->blogs()->get();
+        return view('frontend.blogs.category-blog', compact('category', 'blogs'));
     }
 }

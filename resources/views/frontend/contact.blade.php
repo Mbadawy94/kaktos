@@ -10,23 +10,22 @@
             <div class="row">
                 <div class="col-sm-6 col-md-3 contact-box">
                     <h3>address:</h3>
-                    <p>1st, New Yorl, USA</p>
+                    <p>Asyut, Egypt</p>
                 </div>
                 <div class="col-sm-6 col-md-3 contact-box">
                     <h3>email:</h3>
-                    <a href="mailto:office@florise.com">office@florise.com</a>
+                    <a href="mailto:office@florise.com">kaktosnp@gmail.com</a>
                 </div>
                 <div class="col-sm-6 col-md-3 contact-box">
                     <h3>phone:</h3>
-                    <a href="tel:">+3 523 555 357 1458</a>
+                    <a href="tel:">+201095979957</a>
                 </div>
                 <div class="col-sm-6 col-md-3 contact-box">
                     <h3>follow us:</h3>
                     <ul>
-                        <li><a href="" class="icon-facebook"></a></li>
-                        <li><a href="" class="icon-twitter"></a></li>
-                        <li><a href="" class="icon-gplus"></a></li>
-                        <li><a href="" class="icon-pinterest"></a></li>
+                        <li><a href="https://www.facebook.com/kaktosnp" class="icon-facebook"></a></li>
+                        <li><a href="https://www.instagram.com/kaktosnp" class="icon-instagram"></a></li>
+                        <li><a href="https://twitter.com/kaktosnp" class="icon-twitter"></a></li>
                     </ul>
                 </div>
             </div>
@@ -47,9 +46,6 @@
                             <span class="icon-ok"></span>
                         </div>
                     </div>
-{{--                    <div class="senks-mess">--}}
-{{--                        <span>Thank you, we will contact you asap.</span>--}}
-{{--                    </div>--}}
                 </form>
             </div>
         </div>

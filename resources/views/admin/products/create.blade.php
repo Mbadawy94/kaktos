@@ -44,6 +44,28 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
+                                        <label for="important">
+                                            Important
+                                        </label>
+                                        <input type="hidden" name="important" value="0">
+                                        <input type="checkbox" name="important" value="1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="new">
+                                            New
+                                        </label>
+                                        <input type="hidden" name="new" value="0">
+                                        <input type="checkbox" name="new" value="1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sale">
+                                            Sale
+                                        </label>
+                                        <input type="hidden" name="sale" value="0">
+                                        <input type="checkbox" name="sale" value="1">
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="title">
                                             Title
                                         </label>
@@ -66,6 +88,17 @@
                                                placeholder="Enter Price"
                                                value="{{ old('price') }}"
                                                required
+                                               >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="oldPrice">
+                                            Old Price
+                                        </label>
+                                        <input type="text"
+                                               class="form-control"
+                                               name="oldPrice"
+                                               placeholder="Enter Price"
+                                               value="{{ old('oldPrice') }}"
                                                >
                                     </div>
                                     <div class="form-group">

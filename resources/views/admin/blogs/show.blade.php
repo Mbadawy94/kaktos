@@ -14,6 +14,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('admin.blogs.index') }}">Blogs</a></li>
               <li class="breadcrumb-item active">{{ Str::limit($blog->title, $limit = 15, $end = '...')}}</li>
             </ol>
           </div>
@@ -50,7 +51,7 @@
             <!-- /.card-footer -->
             <div class="card-footer">
               <a href="{{ route('admin.blogs.edit', $blog->id) }}" class="btn btn-success"><i class="fas fa-edit"></i></a>
-              <a href="{{ route('admin.blogs.edit', $blog->id) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+              <a href="{{ route('admin.blogs.edit', $blog->id) }}" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal{{$category->id}}"><i class="fas fa-trash"></i></a>
             </div>
             <!-- /.card-footer -->
           </div>

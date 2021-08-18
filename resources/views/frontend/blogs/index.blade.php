@@ -9,77 +9,33 @@
         </div>
         <div class="container blog-container blog-sidebar">
             <div class="blog-box">
+                @forelse($blogs as $blog)
                 <div class="blog-item left">
                     <div class="image">
-                        <div class="bg" style="background-image:url(img/blog_img_6.jpg)"></div>
+                        <div class="bg" style="background-image:url({{ $blog->image_url }})"></div>
                     </div>
                     <div class="vertical-align">
-                        <span class="date">October 13, 2015</span>
-                        <a href="#" class="font-fam-2">CHLOE NORGAARD CASTAWAY IN NICARAGUA</a>
+                        <span class="date">{{ $blog->created_at->diffForHumans() }}</span>
+                        <a href="/blog/{{ $blog->slug }}" class="font-fam-2">{{ $blog->title }}</a>
                         <div class="post-info">
-                            <a href="#">fashion</a>
+                            <a href="#">{{ $blog->category->name }}</a>
                             <a href="#">by j. smith</a>
-                             <a href="#"><span><i class="icon-comment-empty"></i>10</span></a>
-                        <a href="#"><span><i class="icon-heart-empty"></i>28</span></a>
                         </div>
                         <div class="simple-text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesettin</p>
+                            <p>{{ $blog->excerpt }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="blog-item left">
-                    <div class="image">
-                        <div class="bg" style="background-image:url(img/blog_img_7.jpg)"></div>
-                    </div>
-                    <div class="vertical-align">
-                        <span class="date">October 13, 2015</span>
-                        <a href="#" class="font-fam-2">CHLOE NORGAARD CASTAWAY IN NICARAGUA</a>
-                        <div class="post-info">
-                            <a href="#">fashion</a>
-                            <a href="#">by j. smith</a>
-                             <a href="#"><span><i class="icon-comment-empty"></i>10</span></a>
-                        <a href="#"><span><i class="icon-heart-empty"></i>28</span></a>
-                        </div>
-                        <div class="simple-text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesettin</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-item left">
-                    <div class="image">
-                        <div class="bg" style="background-image:url(img/blog_img_3.jpg)"></div>
-                    </div>
-                    <div class="vertical-align">
-                        <span class="date">October 13, 2015</span>
-                        <a href="#" class="font-fam-2">CHLOE NORGAARD CASTAWAY IN NICARAGUA</a>
-                        <div class="post-info">
-                            <a href="#">fashion</a>
-                            <a href="#">by j. smith</a>
-                             <a href="#"><span><i class="icon-comment-empty"></i>10</span></a>
-                        <a href="#"><span><i class="icon-heart-empty"></i>28</span></a>
-                        </div>
-                        <div class="simple-text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesettin</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="pagination-box">
-                    <a href="" class="prev-page">prev page</a>
-                    <div class="pages">
-                        <a href="" class="active">1</a>
-                        <a href="">2</a>
-                        <a href="">3</a>
-                        <span>...</span>
-                        <a href="">10</a>
-                    </div>
-                    <a href="" class="next-page">next page</a>
-                </div>
+                @empty
+                    <h2>No Blogs Found</h2>
+                @endforelse
+                    {{ $blogs->links('vendor.pagination.frontend') }}
             </div>
             <div class="sidebar-box">
                 <div class="widget">
                    <div class="widget-search">
                        <form action="">
-                           <input type="search" class="search-widget" placeholder="Enter you name"/>
+                           <input type="search" class="search-widget" placeholder="Blog Search"/>
                            <input type="submit" class="search-go" value=""/>
                            <i class="icon-search"></i>
                        </form>
@@ -88,30 +44,22 @@
                  <div class="widget">
                      <h3>categories</h3>
                      <ul class="cat-list">
-                         <li><a href="">Fashion wear <span>14</span></a></li>
-                         <li><a href="">Jewelry accessories <span>28</span></a></li>
-                         <li><a href="">Fashion world <span>9</span></a></li>
-                         <li><a href="">New collections <span>11</span></a></li>
+                         @foreach($categories as $category)
+                         <li><a href="/blogs/{{ $category->slug }}">{{ $category->name }} <span>{{ $category->blogs()->count() }}</span></a></li>
+                         @endforeach
                      </ul>
                  </div>
                 <div class="widget">
-                    <h3>popular posts</h3>
+                    <h3>popular blogs</h3>
+                    @foreach($popular as $blog)
                     <div class="popular-post">
-                        <a href="#">
-                            <img src="img/popular_img_1.jpg" alt="">
+                        <a href="/blog/{{ $blog->slug }}">
+                            <img src="{{ $blog->image_url }}" alt="">
                         </a>
-                        <span class="popular-post-date">October 13, 2015</span>
-                        <h4 class="popular-post-title"><a href="#">CHLOE NORGAARD CASTAWAY IN
-                            NICARAGUA</a></h4>
+                        <span class="popular-post-date">{{ $blog->created_at->diffForHumans() }}</span>
+                        <h4 class="popular-post-title"><a href="/blog/{{ $blog->slug }}">{{ $blog->title }}</a></h4>
                     </div>
-                    <div class="popular-post">
-                        <a href="#">
-                            <img src="img/popular_img_2.jpg" alt="">
-                        </a>
-                        <span class="popular-post-date">October 13, 2015</span>
-                        <h4 class="popular-post-title"><a href="#">CHLOE NORGAARD CASTAWAY IN
-                            NICARAGUA</a></h4>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="widget">
                     <h3>popular tags</h3>

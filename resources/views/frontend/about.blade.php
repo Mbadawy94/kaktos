@@ -3,6 +3,7 @@
     <div class="top-slider type-2">
         <div class="asseccories-baner">
             <div class="bg ready data-jarallax" data-jarallax="5" style="background-image:url(img/about.jpg)"></div>
+            <div class="balck-layer"></div>
             <div class="container">
                 <div class="title vertical-align about-banner">
                     <h2 class="h1 style-3 font-fam-2">about us</h2>
@@ -71,7 +72,7 @@
         <div class="skew-wrap">
             <div class="container">
                 <div class="second-caption style-2">
-                    <h3 class="h5 md title font-fam-2">our sales team</h3>
+                    <h3 class="h5 md title font-fam-2">our team</h3>
                 </div>
                 <div class="row team-row">
                     <div class="col-sm-4 team-box">
@@ -81,8 +82,7 @@
                                 <ul>
                                     <li><a href="" class="icon-facebook"></a></li>
                                     <li><a href="" class="icon-twitter"></a></li>
-                                    <li><a href="" class="icon-gplus"></a></li>
-                                    <li><a href="" class="icon-pinterest"></a></li>
+                                    <li><a href="" class="icon-instagram"></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -94,10 +94,9 @@
                             <img class="resp-img" src="img/team_2.jpg"  alt="">
                             <div class="team-social">
                                 <ul>
-                                    <li><a href="" class="icon-facebook"></a></li>
-                                    <li><a href="" class="icon-twitter"></a></li>
-                                    <li><a href="" class="icon-gplus"></a></li>
-                                    <li><a href="" class="icon-pinterest"></a></li>
+                                    <li><a href="#" class="icon-facebook"></a></li>
+                                    <li><a href="#" class="icon-twitter"></a></li>
+                                    <li><a href="#" class="icon-instagram"></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -111,8 +110,7 @@
                                 <ul>
                                     <li><a href="" class="icon-facebook"></a></li>
                                     <li><a href="" class="icon-twitter"></a></li>
-                                    <li><a href="" class="icon-gplus"></a></li>
-                                    <li><a href="" class="icon-pinterest"></a></li>
+                                    <li><a href="" class="icon-instagram"></a></li>
                                 </ul>
                             </div>
                         </div>

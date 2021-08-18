@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\product;
+use App\Models\Category;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -14,19 +15,23 @@ class ProductController extends Controller
      */
     public function collections()
     {
-        return view('frontend.products.collections');
+        $categories = Category::all();
+        return view('frontend.products.collections', compact('categories'));
     }
 
-    public function index()
+    public function index($slug)
     {
-        return view('frontend.products.products');
+        $category = Category::where('slug', $slug)->first();
+        $products = $category->products()->get();
+        return view('frontend.products.index', compact('products','category'));
     }
 
 
-    public function show()
+    public function show($slug)
     {
-
-        return view('frontend.products.product');
+        $product = Product::where('slug', $slug)->first();
+        $products = $product->category->products()->take(4)->get();
+        return view('frontend.products.product', compact('product', 'products'));
     }
 
 }

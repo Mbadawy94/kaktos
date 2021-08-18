@@ -7,9 +7,13 @@
     <meta name="format-detection" content="telephone=no" />
             <link rel="shortcut icon" href="favicon.ico"/>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
             <link href="{{asset('css/fontello.css')}}" rel="stylesheet" type="text/css"/>
             <link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css"/>
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
+            <link rel="stylesheet" href="{{ asset('css/animate.css')}}">
+
       <title>Floris</title>
   </head>
 <body>
@@ -28,59 +32,11 @@
 
          @yield('content')
 
-    @include('frontend.layouts.news-letter')
+        @include('frontend.layouts.news-letter')
 
-    @include('frontend.layouts.footer')
+        @include('frontend.layouts.footer')
      </div>
 
-     <!--==========CHECKOUT============-->
-
-     <div class="check-out popup mark-popup-2">
-     	<div class="close-popup"><img src="img/close_sm.png" alt=""></div>
-     	   <div class="check-content">
-    	   	  <div class="check-wrap">
-     	   	   <h5 class="h5 title">Your basket <span class="font-fam-1">(2 ITEMS)</span></h5>
-     	   	    <div class="check-item-wrap">
-    	   	    <div class="check-item">
-    	   	    	<div class="image">
-    	   	    		<img src="img/check_image_1.jpg" alt="" class="resp-img">
-    	   	    	</div>
-    	   	    	<div class="text">
-    	   	    		<h5 class="h5 sm">OLIVE LEAF EARRINGS</h5>
-    	   	    		 <div class="sub-title font-fam-1">PALOMA PICASSO</div>
-    	   	    		   <div class="price font-fam-2">
-    	   	    		   	 €260<span>€340</span>
-    	   	    		   </div>
-    	   	    	</div>
-    	   	    	<div class="delete-item">
-    	   	    		<img src="img/close_md.png" alt="" class="resp-img">
-    	   	    	</div>
-    	   	    </div>
-    	   	    <div class="check-item">
-    	   	    	<div class="image">
-    	   	    		<img src="img/check_image_2.jpg" alt="" class="resp-img">
-    	   	    	</div>
-    	   	    	<div class="text">
-    	   	    		<h5 class="h5 sm">OLIVE LEAF EARRINGS</h5>
-    	   	    		 <div class="sub-title font-fam-1">PALOMA PICASSO</div>
-    	   	    		   <div class="price font-fam-2">
-    	   	    		   	 €260<span>€340</span>
-    	   	    		   </div>
-    	   	    	</div>
-    	   	    	<div class="delete-item">
-    	   	    		<img src="img/close_md.png" alt="" class="resp-img">
-    	   	    	</div>
-    	   	    </div>
-    	   	    </div>
-     	   	  </div>
-     	   	  <div class="check-pay-wrap">
-				  <div class="check-pay">
-					<div class="price-total font-fam-2">Subtotal:<span>€520</span></div>
-					<a href="#" class="button-style braun"><span>checkout</span></a>
-				  </div>
-			  </div>
-     	  </div>
-     </div>
 
 <script>
 	function submitForm() {

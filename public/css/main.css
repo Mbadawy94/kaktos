@@ -387,10 +387,10 @@
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
     display: inline-block;
-    padding: 19px 20px 18px; }
+    padding: 8px}
     @media screen and (max-width: 1200px) {
       .pages a, .pages span {
-        padding: 12px; } }
+        padding: 8px; } }
   .pages a:hover {
     background: #B69176;
     color: #fff; }

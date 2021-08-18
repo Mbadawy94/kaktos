@@ -68,64 +68,31 @@
              </div>
         </div>
         <div class="product-item-wrap">
-            <div class="product-item right item-animation">
-                <div class="image">
-                    <a href="#"><img src="img/item_img_1.jpg" alt=""></a>
-                    <div class="title item-title">
-                      <h4 class="h4"><a href="#">above it all</a></h4>
-                        <p class="sub-title"><b>9ML –</b><span> $45.00</span></p>
+            @php $count = 1;@endphp
+            @foreach($products as $product)
+                @if($count%2)
+                <div class="product-item right item-animation">
+                    <div class="image">
+                        <a href="/product/{{ $product->slug }}"><img src={{ $product->image_url }} alt="" style="max-height: 482px; max-width: 412px;"></a>
+                        <div class="title item-title">
+                          <h4 class="h4"><a href="/product/{{ $product->slug }}">{{$product->title}}</a></h4>
+                            <p class="sub-title"><span>{{ $product->price }} @if($product->oldPrice != '0')<b>{{ $product->oldPrice }}</b>@endif</span></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="product-item left item-animation sm">
-                <div class="image">
-                    <a href="#"><img src="img/item_img_2.jpg" alt=""></a>
-                    <div class="title item-title">
-                      <h4 class="h4"><a href="#">Opaque<br> Popy Red</a></h4>
-                        <p class="sub-title"><b>9ML –</b><span> $45.00</span></p>
+                @else
+                <div class="product-item left item-animation sm">
+                    <div class="image">
+                        <a href="/product/{{ $product->slug }}"><img src={{ $product->image_url }} alt="" style="max-height: 305px; max-width: 261px;"></a>
+                        <div class="title item-title">
+                          <h4 class="h4"><a href="/product/{{ $product->slug }}">{{$product->title}}</a></h4>
+                            <p class="sub-title"><span>{{ $product->price }}</span></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="product-item right item-animation">
-                <div class="image">
-                    <a href="#"><img src="img/item_img_3.jpg" alt=""></a>
-                    <div class="title item-title">
-                      <h4 class="h4"><a href="#">the quin<br> is dead</a></h4>
-                        <p class="sub-title"><b>9ML –</b><span> $45.00</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item left item-animation">
-                <div class="image">
-                    <a href="#"><img src="img/item_img_4.jpg" alt=""></a>
-                    <div class="title item-title">
-                      <h4 class="h4"><a href="#">basis of<br> everything</a></h4>
-                        <p class="sub-title"><b>9ML –</b><span> $45.00</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item right item-animation">
-                <div class="image">
-                    <a href="#"><img src="img/item_img_1.jpg" alt=""></a>
-                    <div class="title item-title">
-                      <h4 class="h4"><a href="#">above it all</a></h4>
-                        <p class="sub-title"><b>9ML –</b><span> $45.00</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item left item-animation sm">
-                <div class="image">
-                    <a href="#"><img src="img/item_img_2.jpg" alt=""></a>
-                    <div class="title item-title">
-                      <h4 class="h4"><a href="#">Opaque<br> Popy Red</a></h4>
-                        <p class="sub-title"><b>9ML –</b><span> $45.00</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="more-insert"></div>
-        </div>
-        <div class="center-align">
-           <a href="#" class="button-style more" data-more='<div class="product-item right item-animation"><div class="image"><a href="#"><img src="img/item_img_1.jpg" alt=""></a><div class="title"><h4 class="h4"><a href="#">above it all</a></h4><p class="sub-title"><b>9ML –</b><span> $45.00</span></p></div></div></div><div class="product-item left item-animation sm"><div class="image"><a href="#"><img src="img/item_img_2.jpg" alt=""></a><div class="title"><h4 class="h4"><a href="#">Opaque Popy Red</a></h4><p class="sub-title"><b>9ML –</b><span> $45.00</span></p></div></div></div><div class="product-item right item-animation"><div class="image"><a href="#"><img src="img/item_img_3.jpg" alt=""></a><div class="title"><h4 class="h4"><a href="#">the quin is dead</a></h4><p class="sub-title"><b>9ML –</b><span> $45.00</span></p></div></div></div><div class="product-item left item-animation"><div class="image"><a href="#"><img src="img/item_img_4.jpg" alt=""></a><div class="title"><h4 class="h4"><a href="#">basis of everything</a></h4><p class="sub-title"><b>9ML –</b><span> $45.00</span></p></div></div></div><div class="product-item right item-animation"><div class="image"><a href="#"><img src="img/item_img_1.jpg" alt=""></a><div class="title"><h4 class="h4"><a href="#">above it all</a></h4><p class="sub-title"><b>9ML –</b><span> $45.00</span></p></div></div></div><div class="product-item left item-animation sm"><div class="image"><a href="#"><img src="img/item_img_2.jpg" alt=""></a><div class="title"><h4 class="h4"><a href="#">Opaque Popy Red</a></h4><p class="sub-title"><b>9ML –</b><span> $45.00</span></p></div></div></div>'><span>more products</span></a>
+                @endif
+                @php $count++;@endphp
+            @endforeach
         </div>
      </div>
 </section>

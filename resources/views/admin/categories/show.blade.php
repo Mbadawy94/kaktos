@@ -14,6 +14,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('admin.categories.index') }}">Categories</a></li>
               <li class="breadcrumb-item active">{{ Str::limit($category->name, $limit = 25, $end = '...')}}</li>
             </ol>
           </div>

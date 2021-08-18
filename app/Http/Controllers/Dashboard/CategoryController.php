@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Models\category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
@@ -91,7 +92,7 @@ class CategoryController extends Controller
             'name' => $request->name,
             'description' => $request->description,
         ]);
-        return redirect()->route('admin.categories.show', $category->id)->with('success', 'Category updated successfully');
+        return redirect()->route('admin.categories.index')->with('success', 'Category updated successfully');
     }
 
     /**

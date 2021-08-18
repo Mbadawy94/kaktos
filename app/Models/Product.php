@@ -13,9 +13,14 @@ class Product extends Model
         'image',
         'title',
         'price',
+        'oldPrice',
         'quantity',
         'description',
         'category_id',
+        'important',
+        'new',
+        'sale',
+        'popular',
     ];
 
       public static function boot()
@@ -25,6 +30,21 @@ class Product extends Model
         static::creating(function($product){
             $product->slug = Str::slug($product->title);
         });
+    }
+
+    public function scopeImportant($query)
+    {
+        return $query->where('important', true);
+    }
+
+    public function scopeNew($query)
+    {
+        return $query->where('new', true);
+    }
+
+    public function scopeSale($query)
+    {
+        return $query->where('sale', true);
     }
 
     public function getImageUrlAttribute()

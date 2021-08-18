@@ -44,6 +44,13 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
+                                        <label for="popular">
+                                            Popular
+                                        </label>
+                                          <input type="hidden" name="popular" value="0">
+                                          <input type="checkbox" name="popular" value="1">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="title">
                                             Title
                                         </label>

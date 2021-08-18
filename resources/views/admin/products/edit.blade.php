@@ -43,8 +43,28 @@
                             <form method="post" action="{{route('admin.products.update', $product->id) }}" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
-{{--                                <input value="{{$product->id}}" name="product_id" hidden>--}}
                                 <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="important">
+                                            Important
+                                        </label>
+                                          <input type="hidden" name="important" value="0">
+                                          <input type="checkbox" name="important" value="1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="new">
+                                            New
+                                        </label>
+                                        <input type="hidden" name="new" value="0">
+                                        <input type="checkbox" name="new" value="1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sale">
+                                            Sale
+                                        </label>
+                                        <input type="hidden" name="sale" value="0">
+                                        <input type="checkbox" name="sale" value="1">
+                                    </div>
                                     <div class="form-group">
                                         <label for="title">
                                             Title
@@ -58,7 +78,29 @@
                                                required
                                                >
                                     </div>
-
+                                    <div class="form-group">
+                                        <label for="price">
+                                            Price
+                                        </label>
+                                        <input type="text"
+                                               class="form-control"
+                                               name="price"
+                                               placeholder="Enter Price"
+                                               value="{{ $product->price }}"
+                                               required
+                                               >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="oldPrice">
+                                            Old Price
+                                        </label>
+                                        <input type="text"
+                                               class="form-control"
+                                               name="oldPrice"
+                                               placeholder="Enter Price"
+                                               value="{{ $product->oldPrice }}"
+                                               >
+                                    </div>
                                     <div class="form-group">
                                         <label for="description">
                                             Description
@@ -71,7 +113,8 @@
                                                required
                                                rows="10"
                                         >{{ $product->description }}</textarea>
-                                      </div>
+                                    </div>
+
                                     <div class="form-group">
                                     <label for="inputStatus">Category</label>
                                         <select id="inputStatus" name="category_id" class="form-control custom-select">

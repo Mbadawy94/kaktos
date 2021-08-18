@@ -18,7 +18,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::latest()->paginate(15);
+        $blogs = Blog::orderBy('id', 'desc')->paginate(15);
         return view('admin.blogs.index', compact('blogs'));
     }
 
@@ -46,6 +46,7 @@ class BlogController extends Controller
             'title' => 'required|string',
             'excerpt' => 'required|string',
             'body' => 'required|string',
+            'popular' => 'nullable|boolean',
             'category_id' => 'required',
             'tag_id',
             'image' => 'required|mimes:jpeg,jpg,png',
@@ -59,6 +60,7 @@ class BlogController extends Controller
             'title' => $request->title,
             'excerpt' => $request->excerpt,
             'body' => $request->body,
+            'popular' => $request->popular,
             'category_id' => $request->category_id,
         ]);
 
@@ -74,7 +76,6 @@ class BlogController extends Controller
     public function show($slug)
     {
         $blog = Blog::where('slug', $slug)->first();
-
         return view('admin.blogs.show', compact('blog'));
     }
 
@@ -104,8 +105,8 @@ class BlogController extends Controller
             'title' => 'required',
             'excerpt' => 'required',
             'body' => 'required',
+            'popular' => 'nullable|boolean',
             'category_id' => 'required',
-            'tag_id' => 'required',
             'image' => 'nullable',
         ]);
         if ($request->hasFile('image')){
@@ -119,9 +120,11 @@ class BlogController extends Controller
             'image' => $imageName ?? $blog->image,
             'title' => $request->title,
             'body' => $request->body,
+            'popular' => $request->popular,
             'excerpt' => $request->excerpt,
         ]);
-        return redirect()->route('admin.blogs.show', $blog->id)->with('success', 'Blog updated successfully');
+
+        return redirect()->route('admin.blogs.show', $blog->slug)->with('success', 'Blog updated successfully');
     }
 
     /**
@@ -130,8 +133,9 @@ class BlogController extends Controller
      * @param  \App\Models\blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(blog $blog)
+    public function destroy($id)
     {
-        //
+        Blog::find($id)->delete();
+        return redirect()->back()->with('success','Blog deleted success');
     }
 }

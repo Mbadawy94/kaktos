@@ -20,23 +20,22 @@ Route::middleware('guest')
     ->group(function (){
         Route::get('/', function () {return view('admin.layouts.dashboard');})->name('dashboard');
         Route::resource('products', 'ProductController');
-        Route::resource('blogs', 'BlogController')->except(['show']);
-        Route::get('blogs/{slug}', 'BlogController@show');
+        Route::resource('blogs', 'BlogController');
         Route::resource('categories', 'CategoryController');
         Route::resource('tags', 'TagController')->except(['show']);
         Route::resource('users', 'UserController')->except(['show']);
 });
 
-Route::middleware('guest')
-    ->prefix('/')
+Route::prefix('/')
     ->namespace('App\Http\Controllers\frontend')
     ->group(function (){
-        Route::get('/', function () {return view('frontend.index');})->name('index');
+        Route::get('/','HomeController@index')->name('index');
         Route::get('collections', 'ProductController@collections')->name('collections');
-        Route::get('products', 'ProductController@index');
-        Route::get('product', 'ProductController@show')->name('product');
+        Route::get('products/{slug}', 'ProductController@index');
+        Route::get('product/{slug}', 'ProductController@show');
         Route::get('blogs', 'BlogController@index')->name('blogs');
-        Route::get('blog', 'BlogController@show');
+        Route::get('blogs/{slug}', 'BlogController@category');
+        Route::get('blog/{slug}', 'BlogController@show');
         Route::get('category', 'BlogController@category');
         Route::get('about', 'HomeController@about')->name('about');
         Route::get('contact', 'HomeController@contact')->name('contact');

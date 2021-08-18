@@ -20,7 +20,11 @@ class CreateProductsTable extends Migration
             $table->string('slug')->index();
             $table->text('description');
             $table->float('price');
+            $table->float('oldPrice')->nullable();
             $table->float('quantity')->nullable();
+            $table->boolean('important')->default(false);
+            $table->boolean('new')->default(false);
+            $table->boolean('sale')->default(false);
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });

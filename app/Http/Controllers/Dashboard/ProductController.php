@@ -18,7 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->paginate(15);
+        $products = Product::orderBy('id', 'desc')->paginate(15);
         return view('admin.products.index', compact('products'));
     }
 
@@ -42,10 +42,14 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string',
+            'title' => 'required|string|unique:products,title',
             'price' => 'required|numeric',
+            'oldPrice' => 'numeric',
             'description' => 'required|string',
             'quantity' => 'string',
+            'important' => 'nullable|boolean',
+            'new' => 'nullable|boolean',
+            'sale' => 'nullable|boolean',
             'category_id' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png',
         ]);
@@ -56,7 +60,11 @@ class ProductController extends Controller
         Product::create([
             'image' => $imageName,
             'title' => $request->title,
+            'important' => $request->important,
+            'new' => $request->new,
+            'sale' => $request->sale,
             'price' => $request->price,
+            'oldPrice' => $request->oldPrice,
             'description' => $request->description,
             'category_id' => $request->category_id,
         ]);
@@ -72,8 +80,7 @@ class ProductController extends Controller
      */
     public function show($slug)
     {
-         $product = Product::where('slug', $slug)->first();
-
+        $product = Product::where('slug', $slug)->first();
         return view('admin.products.show', compact('product'));
     }
 
@@ -101,6 +108,11 @@ class ProductController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'price' => 'required|numeric',
+            'oldPrice' => 'numeric',
+            'important' => 'nullable|boolean',
+            'new' => 'nullable|boolean',
+            'sale' => 'nullable|boolean',
             'category_id' => 'required',
             'image' => 'nullable',
         ]);
@@ -115,8 +127,13 @@ class ProductController extends Controller
             'image' => $imageName ?? $product->image,
             'title' => $request->title,
             'description' => $request->description,
+            'price' => $request->price,
+            'oldPrice' => $request->oldPrice,
+            'important' => $request->important,
+            'new' => $request->new,
+            'sale' => $request->sale,
         ]);
-        return redirect()->route('admin.products.show', $product->id)->with('success', 'Product updated successfully');
+        return redirect()->route('admin.products.show', $product->slug)->with('success', 'Product updated successfully');
     }
 
     /**
@@ -125,8 +142,9 @@ class ProductController extends Controller
      * @param  \App\Models\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(product $product)
+    public function destroy($id)
     {
-        //
+        Product::find($id)->delete();
+        return redirect()->back()->with('success','Product deleted success');
     }
 }
