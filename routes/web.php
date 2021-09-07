@@ -24,6 +24,7 @@ Route::middleware('guest')
         Route::resource('categories', 'CategoryController');
         Route::resource('tags', 'TagController')->except(['show']);
         Route::resource('users', 'UserController')->except(['show']);
+        Route::resource('messages', 'MessageController')->only(['index', 'show', 'destroy']);
 });
 
 Route::prefix('/')
@@ -41,4 +42,6 @@ Route::prefix('/')
         Route::get('contact', 'HomeController@contact')->name('contact');
         Route::get('faq', 'HomeController@faq')->name('faq');
         Route::get('404', 'HomeController@crash');
+        Route::get('search', 'HomeController@search')->name('search');
+        Route::post('messages', 'MessageController@store')->name('messages');
 });

@@ -32,7 +32,7 @@
 
          @yield('content')
 
-        @include('frontend.layouts.news-letter')
+{{--        @include('frontend.layouts.news-letter')--}}
 
         @include('frontend.layouts.footer')
      </div>

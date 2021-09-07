@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -31,5 +32,18 @@ class HomeController extends Controller
     public function crash()
     {
         return view('frontend.404');
+    }
+
+    public function search(Request $request)
+    {
+        $query = Product::query();
+
+        if ($request->search_query) {
+            $query->where('title', 'LIKE', '%' . $request->search_query . '%');
+        }
+
+        $products = $query->latest();
+
+        return view('frontend.products.searched', compact('products'));
     }
 }

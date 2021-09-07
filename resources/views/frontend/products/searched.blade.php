@@ -3,22 +3,16 @@
 
     <div class="top-slider sm type-2">
      	 <div class="category-baner">
-            @if($category->name == 'Hair')<div class="bg fix" style="background-image:url(/img/category_grid_1.jpg)"></div>
-            @elseif($category->name == 'Face')<div class="bg fix" style="background-image:url(/img/category_grid_2.jpg)"></div>
-            @else<div class="bg fix" style="background-image:url(/img/category_grid_3.jpg)"></div>
-             @endif
+            <div class="bg fix" style="background-image:url(/img/searched.jpg)"></div>
      	 	  <div class="title vertical-align">
-     	 	  	<h1 class="h1 style-1 text-white">{{ $category->name }}</h1>
-     	 	  	 <div class="simple-text font-fam-3">
-     	 	  	 	<p class="text-white">{{ $category->description }}</p>
-     	 	  	 </div>
+     	 	  	<h1 class="h1 style-1 text-white">Searched Products</h1>
      	 	  </div>
      	 </div>
       </div>
 
       <section class="section-md border-b">
          <div class="container-fluid">
-             @foreach($products as $product)
+             @forelse($products as $product)
                <div class="col-25">
                   <div class="category-item">
                     <div class="image">
@@ -32,7 +26,15 @@
                     </div>
                   </div>
                </div>
-             @endforeach
+             @empty
+                 <div class="sm type-2">
+                     <div class="category-baner">
+                          <div class="title">
+                            <h2 class="h2 style-1">No Products Found</h2>
+                          </div>
+                     </div>
+                 </div>
+             @endforelse
          </div>
 	  </section>
 @endsection

@@ -29,25 +29,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="row form-row">
-                <form action="/" onsubmit="return submitForm2();" method="post" id="contact-form2">
-                    <div class="col-sm-12 col-md-6">
-                        <input class="form-box-input" name="name"  type="text" placeholder="Enter you name" required>
-                    </div>
-                    <div class="col-sm-12 col-md-6">
-                        <input class="form-box-input" name="email" type="text" placeholder="Enter you email" required>
-                    </div>
-                    <div class="col-sm-12">
-                        <textarea class="form-box-textarea" name="message" placeholder="Message"></textarea>
-                    </div>
-                    <div class="send-button-wrapp clearfix">
-                        <div class="send-button">
-                            <input type="submit" class="submit" value="submit">
-                            <span class="icon-ok"></span>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            @include('frontend.message')
         </div>
     </section>
 
