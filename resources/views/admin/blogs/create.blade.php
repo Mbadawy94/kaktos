@@ -47,54 +47,54 @@
                                         <label for="popular">
                                             Popular
                                         </label>
-                                          <input type="hidden" name="popular" value="0">
-                                          <input type="checkbox" name="popular" value="1">
+                                        <input type="hidden" name="popular" value="0">
+                                        <input type="checkbox" name="popular" value="1">
                                     </div>
                                     <div class="form-group">
                                         <label for="title">
                                             Title
                                         </label>
                                         <input type="text"
-                                               class="form-control"
-                                               id="title"
-                                               name="title"
-                                               placeholder="Enter Title"
-                                               value="{{ old('title') }}"
-                                               required
-                                               >
+                                            class="form-control"
+                                            id="title"
+                                            name="title"
+                                            placeholder="Enter Title"
+                                            value="{{ old('title') }}"
+                                            required
+                                            >
                                     </div>
                                     <div class="form-group">
                                         <label for="excerpt">
                                             Excerpt
                                         </label>
                                         <input type="text"
-                                               class="form-control"
-                                               name="excerpt"
-                                               placeholder="Enter Excerpt"
-                                               value="{{ old('excerpt') }}"
-                                               required
-                                               >
+                                            class="form-control"
+                                            name="excerpt"
+                                            placeholder="Enter Excerpt"
+                                            value="{{ old('excerpt') }}"
+                                            required
+                                            >
                                     </div>
                                     <div class="form-group">
                                         <label for="body">
                                             Body
                                         </label>
                                         <textarea
-                                               class="form-control"
-                                               id="body"
-                                               name="body"
-                                               placeholder="Enter Body"
-                                               required
-                                               rows="10"
+                                            class="form-control"
+                                            id="summernote"
+                                            name="body"
+                                            placeholder="Enter Body"
+                                            required
+                                        
                                         >{{ old('body') }}</textarea>
-                                      </div>
+                                    </div>
                                     <div class="form-group">
                                     <label for="inputStatus">Categories</label>
                                         <select id="inputStatus" name="category_id" class="form-control custom-select">
-                                          <option selected disabled>Select one</option>
-                                           @foreach($categories as $category)
-                                                <option value="{{ $category->id }}"> {{ $category->name }} </option>
-                                           @endforeach
+                                            <option selected disabled>Select one</option>
+                                            @foreach($categories as $category)
+                                                    <option value="{{ $category->id }}"> {{ $category->name }} </option>
+                                            @endforeach
 
                                         </select>
                                     </div>
@@ -106,13 +106,13 @@
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file"
-                                                       class="custom-file-input"
-                                                       id="image"
-                                                       name="image"
-                                                       required
-                                                       >
+                                                    class="custom-file-input"
+                                                    id="image"
+                                                    name="image"
+                                                    required
+                                                    >
                                                 <label class="custom-file-label"
-                                                       for="productImage">
+                                                    for="productImage">
                                                     Choose Image
                                                 </label>
                                             </div>

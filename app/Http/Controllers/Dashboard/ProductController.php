@@ -44,7 +44,7 @@ class ProductController extends Controller
         $request->validate([
             'title' => 'required|string|unique:products,title',
             'price' => 'required|numeric',
-            'oldPrice' => 'numeric',
+            'oldPrice' => 'nullable|numeric',
             'description' => 'required|string',
             'quantity' => 'string',
             'important' => 'nullable|boolean',
@@ -120,6 +120,7 @@ class ProductController extends Controller
             Storage::delete('app/public/images/' . $product->image);
             $imageName = time().'.'.$request->image->extension();
             $request->image->move(storage_path('app/public/images'), $imageName);
+            $imageName = 'storage/images/' . $imageName;
             $request->image = $imageName;
         };
 

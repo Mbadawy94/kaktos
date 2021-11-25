@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Models\comment;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller

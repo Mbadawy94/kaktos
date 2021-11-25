@@ -8,8 +8,7 @@
          </div>
          <ul class="footer-nav">
             <li><a href="{{ 'contact' }}">CONTACT</a></li>
-            <li><a href="{{ 'faq' }}">faq</a></li>
-            <li><a href="#">terms</a></li>
+            <li><a href="{{ 'faq' }}">faq & terms</a></li>
          </ul>
          <div class="copyright"><span>Copyright Kaktos &copy; 2021</span></div>
        </div>

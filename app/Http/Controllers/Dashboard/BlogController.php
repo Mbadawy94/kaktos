@@ -113,6 +113,7 @@ class BlogController extends Controller
             Storage::delete('app/public/images/' . $blog->image);
             $imageName = time().'.'.$request->image->extension();
             $request->image->move(storage_path('app/public/images'), $imageName);
+            $imageName = 'storage/images/' . $imageName;
             $request->image = $imageName;
         };
 
@@ -136,6 +137,6 @@ class BlogController extends Controller
     public function destroy($id)
     {
         Blog::find($id)->delete();
-        return redirect()->back()->with('success','Blog deleted success');
+        return redirect()->route('admin.blogs.index')->with('success','Blog deleted success');
     }
 }

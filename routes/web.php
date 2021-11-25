@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('guest')
+Route::middleware('auth')
     ->prefix('admin')
     ->name('admin.')
     ->namespace('App\Http\Controllers\Dashboard')
@@ -28,7 +28,7 @@ Route::middleware('guest')
 });
 
 Route::prefix('/')
-    ->namespace('App\Http\Controllers\frontend')
+    ->namespace('App\Http\Controllers\Frontend')
     ->group(function (){
         Route::get('/','HomeController@index')->name('index');
         Route::get('collections', 'ProductController@collections')->name('collections');
@@ -45,3 +45,5 @@ Route::prefix('/')
         Route::get('search', 'HomeController@search')->name('search');
         Route::post('messages', 'MessageController@store')->name('messages');
 });
+
+require __DIR__.'/auth.php';

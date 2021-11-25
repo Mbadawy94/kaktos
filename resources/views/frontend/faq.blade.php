@@ -11,12 +11,59 @@
         </div>
         <div class="container">
             <div class="faq-container">
+                <div class="faq-container">
+                    <h3 class="title-faq">
+                        about shop & products
+                    </h3>
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <div class="accordion-title">
+                                Quisque pharetra sem non iaculis molestie
+                            </div>
+                            <div class="accordion-content">
+                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ipsum nisi, fringilla a mattis vitae, blandit at ipsum. Maecenas sit amet risus ex. Integer rutrum metus eget lorem tristique, rutrum facilisis tellus fermentum.
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-title">
+                                Morbi convallis euismod dui eget euismod
+                            </div>
+                            <div class="accordion-content">
+                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ipsum nisi, fringilla a mattis vitae, blandit at ipsum. Maecenas sit amet risus ex. Integer rutrum metus eget lorem tristique, rutrum facilisis tellus fermentum.
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-title">
+                                Quisque pharetra sem non iaculis molestie
+                            </div>
+                            <div class="accordion-content">
+                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ipsum nisi, fringilla a mattis vitae, blandit at ipsum. Maecenas sit amet risus ex. Integer rutrum metus eget lorem tristique, rutrum facilisis tellus fermentum.
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-title">
+                                Ut et nisi quis enim dignissim tempor eu id nulla
+                            </div>
+                            <div class="accordion-content">
+                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ipsum nisi, fringilla a mattis vitae, blandit at ipsum. Maecenas sit amet risus ex. Integer rutrum metus eget lorem tristique, rutrum facilisis tellus fermentum.
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-title">
+                                Morbi convallis euismod dui eget euismod
+                            </div>
+                            <div class="accordion-content">
+                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ipsum nisi, fringilla a mattis vitae, blandit at ipsum. Maecenas sit amet risus ex. Integer rutrum metus eget lorem tristique, rutrum facilisis tellus fermentum.
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <h3 class="title-faq">
                     terms & conditions
                 </h3>
                 <div class="accordion">
                     <div class="accordion-item">
-                        <div class="accordion-title active">
+                        <div class="accordion-title">
                             Quisque pharetra sem non iaculis molestie
                         </div>
                         <div class="accordion-content open">
@@ -57,53 +104,7 @@
                     </div>
                 </div>
             </div>
-            <div class="faq-container">
-                <h3 class="title-faq">
-                    about shop & products
-                </h3>
-                <div class="accordion">
-                    <div class="accordion-item">
-                        <div class="accordion-title">
-                            Quisque pharetra sem non iaculis molestie
-                        </div>
-                        <div class="accordion-content">
-                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ipsum nisi, fringilla a mattis vitae, blandit at ipsum. Maecenas sit amet risus ex. Integer rutrum metus eget lorem tristique, rutrum facilisis tellus fermentum.
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <div class="accordion-title">
-                            Morbi convallis euismod dui eget euismod
-                        </div>
-                        <div class="accordion-content">
-                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ipsum nisi, fringilla a mattis vitae, blandit at ipsum. Maecenas sit amet risus ex. Integer rutrum metus eget lorem tristique, rutrum facilisis tellus fermentum.
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <div class="accordion-title">
-                            Quisque pharetra sem non iaculis molestie
-                        </div>
-                        <div class="accordion-content">
-                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ipsum nisi, fringilla a mattis vitae, blandit at ipsum. Maecenas sit amet risus ex. Integer rutrum metus eget lorem tristique, rutrum facilisis tellus fermentum.
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <div class="accordion-title">
-                            Ut et nisi quis enim dignissim tempor eu id nulla
-                        </div>
-                        <div class="accordion-content">
-                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ipsum nisi, fringilla a mattis vitae, blandit at ipsum. Maecenas sit amet risus ex. Integer rutrum metus eget lorem tristique, rutrum facilisis tellus fermentum.
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <div class="accordion-title">
-                            Morbi convallis euismod dui eget euismod
-                        </div>
-                        <div class="accordion-content">
-                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ipsum nisi, fringilla a mattis vitae, blandit at ipsum. Maecenas sit amet risus ex. Integer rutrum metus eget lorem tristique, rutrum facilisis tellus fermentum.
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </section>
 

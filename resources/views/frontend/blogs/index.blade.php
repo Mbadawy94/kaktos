@@ -61,7 +61,7 @@
                     </div>
                     @endforeach
                 </div>
-                <div class="widget">
+                {{-- <div class="widget">
                     <h3>popular tags</h3>
                     <ul class="tag-list">
                         <li><a href="#">fashion</a></li>
@@ -70,7 +70,7 @@
                         <li><a href="#">style</a></li>
                         <li><a href="#">trends</a></li>
                     </ul>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>

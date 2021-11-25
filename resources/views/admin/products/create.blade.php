@@ -70,36 +70,36 @@
                                             Title
                                         </label>
                                         <input type="text"
-                                               class="form-control"
-                                               id="title"
-                                               name="title"
-                                               placeholder="Enter Title"
-                                               value="{{ old('title') }}"
-                                               required
-                                               >
+                                            class="form-control"
+                                            id="title"
+                                            name="title"
+                                            placeholder="Enter Title"
+                                            value="{{ old('title') }}"
+                                            required
+                                            >
                                     </div>
                                     <div class="form-group">
                                         <label for="price">
                                             Price
                                         </label>
                                         <input type="text"
-                                               class="form-control"
-                                               name="price"
-                                               placeholder="Enter Price"
-                                               value="{{ old('price') }}"
-                                               required
-                                               >
+                                            class="form-control"
+                                            name="price"
+                                            placeholder="Enter Price"
+                                            value="{{ old('price') }}"
+                                            required
+                                            >
                                     </div>
                                     <div class="form-group">
                                         <label for="oldPrice">
                                             Old Price
                                         </label>
                                         <input type="text"
-                                               class="form-control"
-                                               name="oldPrice"
-                                               placeholder="Enter Price"
-                                               value="{{ old('oldPrice') }}"
-                                               >
+                                            class="form-control"
+                                            name="oldPrice"
+                                            placeholder="Enter Price"
+                                            value="{{ old('oldPrice') }}"
+                                            >
                                     </div>
                                     <div class="form-group">
                                         <label for="description">
