@@ -23,7 +23,7 @@ class Product extends Model
         'popular',
     ];
 
-      public static function boot()
+    public static function boot()
     {
         parent::boot();
 

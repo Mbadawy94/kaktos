@@ -4,54 +4,54 @@
 <div class="top-slider">
     <div class="swiper-container animation-slider">
         <div class="swiper-wrapper">
-           <div class="swiper-slide">
+          <div class="swiper-slide">
               <div class="top-slide">
                 <div class="left-side">
                     <div class="bg" style="background-image:url(img/main_slide_img_1.jpg)"></div>
                 </div>
                 <div class="right-side">
-                   <div class="main-caption vertical-align">
+                  <div class="main-caption vertical-align">
                       <div class="image">
                         <img src="img/title_img_1.png" alt="">
                       </div>
                       <h1 class="h2">basis of everything</h1>
                       <p>adherent resinous base coat</p>
-                   </div>
+                  </div>
                 </div>
               </div>
-           </div>
-           <div class="swiper-slide">
+          </div>
+          <div class="swiper-slide">
               <div class="top-slide">
                 <div class="left-side">
                     <div class="bg" style="background-image:url(img/main_slide_img_2.jpg)"></div>
                 </div>
                 <div class="right-side">
-                   <div class="main-caption vertical-align">
+                  <div class="main-caption vertical-align">
                       <div class="image">
                         <img src="img/title_img_2.png" alt="">
                       </div>
                       <h2 class="h2">the quin is dead</h2>
                       <p>adherent resinous base coat</p>
-                   </div>
+                  </div>
                 </div>
               </div>
-           </div>
-           <div class="swiper-slide">
+          </div>
+          <div class="swiper-slide">
               <div class="top-slide">
                 <div class="left-side">
                     <div class="bg" style="background-image:url(img/main_slide_img_3.jpg)"></div>
                 </div>
                 <div class="right-side">
-                   <div class="main-caption vertical-align">
+                  <div class="main-caption vertical-align">
                       <div class="image">
                         <img src="img/title_img_3.png" alt="">
                       </div>
                       <h2 class="h2">opaque popy red</h2>
                       <p>adherent resinous base coat</p>
-                   </div>
+                  </div>
                 </div>
               </div>
-           </div>
+          </div>
         </div>
         <div class="pagination"></div>
         <div class="swiper-arrow-left slider-arrow"><img src="img/arrow_left.png" alt=""></div>
@@ -60,12 +60,12 @@
 </div>
 
 <section class="section">
-     <div class="container">
+    <div class="container">
         <div class="second-caption">
             <h3 class="h3 title">Beauty in real life</h3>
-             <div class="simple-text">
-               <p>We’re Glossier, a beauty company inspired by what girls need in real life. </p>
-             </div>
+            <div class="simple-text">
+              <p>We’re Glossier, a beauty company inspired by what girls need in real life. </p>
+            </div>
         </div>
         <div class="product-item-wrap">
             @php $count = 1;@endphp

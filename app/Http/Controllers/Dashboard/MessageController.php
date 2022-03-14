@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Message;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class MessageController extends Controller
 {

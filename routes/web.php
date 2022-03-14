@@ -23,7 +23,7 @@ Route::middleware('auth')
         Route::resource('blogs', 'BlogController');
         Route::resource('categories', 'CategoryController');
         Route::resource('tags', 'TagController')->except(['show']);
-        Route::resource('users', 'UserController')->except(['show']);
+        // Route::resource('users', 'UserController')->except(['show']);
         Route::resource('messages', 'MessageController')->only(['index', 'show', 'destroy']);
 });
 

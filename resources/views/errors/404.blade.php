@@ -11,7 +11,6 @@
                 </div>
                 <div class="vertical-align w-full button">
                     <a href="/" class="button-style-2"><span>back on home page</span></a>
-                </div>
             </div>
         </div>
     </div>
